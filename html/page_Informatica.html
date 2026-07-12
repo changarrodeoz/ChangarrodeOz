@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soluciones Informáticas - El Changarro de OZ</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Estilos compartidos del proyecto -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        body { padding: 20px; background-color: var(--bg-body); }
+        .service-img { height: 250px; object-fit: cover; border-radius: 15px 15px 0 0; }
+        .badge-tech { background: var(--accent-glow); color: var(--primary-color); border: 1px solid var(--primary-color); }
+        .plan-title { color: var(--primary-color); font-weight: 700; margin-top: 15px; }
+    </style>
+</head>
+<body class="dark-mode">
+    <script>
+        // Sincronización inmediata de tema
+        if (localStorage.getItem('theme') === 'light') document.body.classList.remove('dark-mode');
+    </script>
+    <div class="container py-4">
+        <header class="text-center mb-5">
+            <h1 class="fw-bold text-gradient">Soluciones Informáticas</h1>
+            <p class="text-muted">Soporte técnico, hardware y consultoría especializada para optimizar tu infraestructura digital.</p>
+        </header>
+
+        <div class="row g-4 justify-content-center">
+            <!-- 1. Hardware y Software -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card service-card h-100">
+                    <img src="https://images.unsplash.com/photo-1597733336794-12d05021d510?q=80&w=800&auto=format&fit=crop" class="service-img" alt="Hardware y Software">
+                    <div class="card-body">
+                        <span class="badge badge-tech mb-2">Mantenimiento</span>
+                        <h5 class="plan-title">Hardware y Software</h5>
+                        <p class="small text-muted">Servicio técnico especializado en mantenimiento preventivo y correctivo. Instalación de componentes, optimización de sistemas operativos y activación de software profesional.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Venta de Equipo -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card service-card h-100">
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800&auto=format&fit=crop" class="service-img" alt="Venta de Equipos">
+                    <div class="card-body">
+                        <span class="badge badge-tech mb-2">Comercio</span>
+                        <h5 class="plan-title">Venta de Equipo</h5>
+                        <p class="small text-muted">Venta de laptops, PCs de escritorio de alto rendimiento, periféricos y accesorios. Ofrecemos asesoría personalizada para que adquieras el equipo que mejor se adapte a tus necesidades.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Soporte Integral -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card service-card h-100 border-tech">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop" class="service-img" alt="Soporte Técnico">
+                    <div class="card-body">
+                        <span class="badge badge-tech mb-2">Consultoría</span>
+                        <h5 class="plan-title">Soporte Integral</h5>
+                        <p class="small text-muted">Diagnóstico profundo de sistemas, recuperación de datos y asesoría en ciberseguridad. Soluciones 100% garantizadas para mantener tu flujo de trabajo sin interrupciones.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="text-center mt-5 pt-4">
+            <p class="text-muted small">
+                <i class="bi bi-shield-lock-fill me-2"></i>
+                Garantía y respaldo técnico en todos nuestros servicios informáticos.
+            </p>
+        </footer>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

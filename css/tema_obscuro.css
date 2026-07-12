@@ -1,0 +1,16 @@
+:root {
+    --primary-color: #00f2fe;
+    --secondary-color: #4facfe;
+    --bg-body: #05070a;
+    --text-main: #f1f5f9;
+    --text-muted: #cbd5e1;
+    --card-bg: rgba(15, 23, 42, 0.4);
+    --card-hover-bg: #1e293b;
+    --nav-bg: rgba(5, 7, 10, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --accent-glow: rgba(0, 242, 254, 0.25);
+    --mesh-color: rgba(255, 255, 255, 0.03);
+    --section-alt: #0f172a;
+    --hero-overlay: linear-gradient(135deg, rgba(8, 11, 18, 0.92), rgba(8, 11, 18, 0.75));
+    --close-filter: invert(1);
+}

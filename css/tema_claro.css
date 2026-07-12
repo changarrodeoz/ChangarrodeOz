@@ -1,0 +1,17 @@
+:root {
+    --primary-color: #00f2fe;
+    --secondary-color: #4facfe;
+    --bg-body: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --card-bg: rgba(255, 255, 255, 0.7);
+    --card-hover-bg: #ffffff;
+    --nav-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(0, 0, 0, 0.05);
+    --accent-glow: rgba(0, 242, 254, 0.15);
+    --text-gradient: linear-gradient(to right, #00f2fe, #4facfe);
+    --mesh-color: rgba(0, 0, 0, 0.05);
+    --section-alt: #f1f5f9;
+    --hero-overlay: linear-gradient(135deg, rgba(248, 249, 250, 0.95), rgba(248, 249, 250, 0.8));
+    --close-filter: invert(0);
+}

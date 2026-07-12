@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Juego de Planos - Arquitectura</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Estilos compartidos del proyecto -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        body { padding: 20px; background-color: var(--bg-body); }
+        .plan-card { margin-bottom: 30px; }
+        .plan-img { height: 250px; object-fit: cover; border-radius: 15px 15px 0 0; }
+        .plan-title { color: var(--primary-color); font-weight: 700; margin-top: 15px; }
+        .badge-tech { background: var(--accent-glow); color: var(--primary-color); border: 1px solid var(--primary-color); }
+    </style>
+</head>
+<body class="dark-mode">
+    <script>
+        // Sincronización inmediata de tema antes de renderizar el contenido pesado
+        if (localStorage.getItem('theme') === 'light') document.body.classList.remove('dark-mode');
+    </script>
+    <div class="container py-4">
+        <header class="text-center mb-5">
+            <h1 class="fw-bold text-gradient">El Juego de Planos Completo</h1>
+            <p class="text-muted">Un proyecto arquitectónico profesional se compone de múltiples capas de información técnica. Aquí te explicamos qué incluye cada una.</p>
+        </header>
+
+        <div class="row">
+            <!-- 1. Topografía -->
+            <div class="col-md-6 col-lg-4 plan-card">
+                <div class="card service-card h-100">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop" class="plan-img" alt="Topografía">
+                    <div class="card-body">
+                        <span class="badge badge-tech mb-2">Fase Inicial</span>
+                        <h5 class="plan-title">Plano Topográfico</h5>
+                        <p class="small text-muted">Es la representación gráfica resultante del levantamiento técnico realizado previamente en campo. Registra con precisión el relieve, linderos y niveles del terreno, siendo el punto de partida esencial para que el diseño arquitectónico se adapte perfectamente al suelo natural.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Ubicación y Localización -->
+            <div class="col-md-6 col-lg-4 plan-card">
+                <div class="card service-card h-100">
+                    <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=800&auto=format&fit=crop" class="plan-img" alt="Ubicación">
+                    <div class="card-body">
+                        <h5 class="plan-title">Plano de Ubicación y Localización</h5>
+                        <p class="small text-muted">Documento que define la posición geográfica exacta del proyecto. Muestra la relación con el entorno urbano, calles colindantes, orientación solar y distancias reglamentarias hacia los límites del terreno, cumpliendo con los requerimientos municipales.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Arquitectónico (Plantas) -->
+            <div class="col-md-6 col-lg-4 plan-card">
+                <div class="card service-card h-100">
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=800&auto=format&fit=crop" class="plan-img" alt="Planta Arquitectónica">
+                    <div class="card-body">
+                        <h5 class="plan-title">Planta Arquitectónica</h5>
+                        <p class="small text-muted">La guía principal de distribución. Define la organización de cada ambiente, dimensiones de muros, circulación peatonal, ubicación de mobiliario y la funcionalidad operativa de cada espacio, permitiendo visualizar la vida cotidiana dentro del edificio.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Render 3D (Movido para aprobación previa) -->
+            <div class="col-md-12 plan-card">
+                <div class="card service-card h-100 highlight-card">
+                    <div class="row g-0">
+                        <div class="col-lg-7">
+                            <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=1200&auto=format&fit=crop" class="plan-img w-100 h-100" alt="Render">
+                        </div>
+                        <div class="col-lg-5 p-4 d-flex flex-column justify-content-center text-center">
+                            <span class="badge badge-tech mb-3 mx-auto">Fase de Aprobación</span>
+                            <h2 class="plan-title text-gradient">Visualización Render 3D</h2>
+                            <p class="text-muted">Representación fotorrealista del diseño. Es la herramienta fundamental para validar materiales, iluminación natural y volumetría. Permite al cliente experimentar el proyecto terminado antes de proceder con el desarrollo de los planos técnicos de construcción.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Fachadas -->
+            <div class="col-md-6 col-lg-4 plan-card">
+                <div class="card service-card h-100">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop" class="plan-img" alt="Fachadas">
+                    <div class="card-body">
+                        <h5 class="plan-title">Plano de Fachadas</h5>
+                        <p class="small text-muted">Representación técnica de las caras exteriores de la edificación. Permite visualizar materiales, alturas totales, niveles de entrepisos, ubicación de ventanas y el lenguaje estético final que el edificio proyectará hacia su entorno.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Cortes -->
+            <div class="col-md-6 col-lg-4 plan-card">
+                <div class="card service-card h-100">
+                    <img src="https://images.unsplash.com/photo-1626307411219-c819598f3fbe?q=80&w=800&auto=format&fit=crop" class="plan-img" alt="Cortes">
+                    <div class="card-body">
+                        <h5 class="plan-title">Plano de Cortes (Secciones)</h5>
+                        <p class="small text-muted">Dibujo de secciones verticales que atraviesan el edificio. Es vital para comprender la relación espacial entre niveles, alturas de techos, composición de losas, escaleras y detalles estructurales internos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Plano Acotado -->
+            <div class="col-md-6 col-lg-4 plan-card">
+                <div class="card service-card h-100">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=800&auto=format&fit=crop" class="plan-img" alt="Dimensiones">
+                    <div class="card-body">
+                        <h5 class="plan-title">Plano de Cotas (Acotado)</h5>
+                        <p class="small text-muted">Manual de medidas críticas para la construcción. Detalla con precisión milimétrica las distancias entre ejes, grosores de paredes y aperturas de vanos, sirviendo como la guía principal para el trazo de la obra en el sitio.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. Acabados -->
+            <div class="col-md-6 col-lg-4 plan-card">
+                <div class="card service-card h-100">
+                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800&auto=format&fit=crop" class="plan-img" alt="Acabados">
+                    <div class="card-body">
+                        <h5 class="plan-title">Plano de Acabados</h5>
+                        <p class="small text-muted">Documento que define la estética final de la obra. Integra el <strong>Cuadro de Acabados</strong>, un inventario técnico que especifica materiales para pisos, pinturas, revestimientos, cielos falsos y carpintería, garantizando que la ejecución sea fiel al diseño aprobado.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. Cimentación -->
+            <div class="col-md-6 col-lg-4 plan-card">
+                <div class="card service-card h-100">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=800&auto=format&fit=crop" class="plan-img" alt="Cimentación">
+                    <div class="card-body">
+                        <span class="badge badge-tech mb-2">Estructura</span>
+                        <h5 class="plan-title">Plano de Cimentación</h5>
+                        <p class="small text-muted">El plano de la base estructural. Detalla el diseño de zapatas, vigas de cimentación y refuerzos de acero bajo tierra, responsables de transmitir de forma segura todas las cargas de la edificación hacia el suelo firme.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9. Estructura de Techos -->
+            <div class="col-md-6 col-lg-4 plan-card">
+                <div class="card service-card h-100">
+                    <img src="https://images.unsplash.com/photo-1635424710928-0544e8512efe?q=80&w=800&auto=format&fit=crop" class="plan-img" alt="Losas">
+                    <div class="card-body">
+                        <h5 class="plan-title">Plano de Estructura de Techos/Losas</h5>
+                        <p class="small text-muted">Define el sistema de cubierta. Detalla el armado de acero, vigas estructurales, nervaduras y el tipo de losa (o estructura de techumbre) que protegerá el interior y soportará cargas vivas y climáticas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10. Instalaciones Hidrosanitarias -->
+            <div class="col-md-6 col-lg-4 plan-card">
+                <div class="card service-card h-100 border-tech">
+                    <img src="https://images.unsplash.com/photo-1585704032915-c3400ca1f963?q=80&w=800&auto=format&fit=crop" class="plan-img" alt="Hidrosanitarias">
+                    <div class="card-body">
+                        <h5 class="plan-title">Plano de Instalaciones Hidrosanitarias</h5>
+                        <p class="small text-muted">Diseño de redes de fluidos. Incluye el suministro de agua potable y la red de drenajes (sanitarios y pluviales), especificando diámetros de tubería, pendientes de desagüe, cajas de registro y ventilaciones.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 11. Instalaciones Eléctricas -->
+            <div class="col-md-6 col-lg-4 plan-card">
+                <div class="card service-card h-100">
+                    <img src="https://images.unsplash.com/photo-1452421822248-d4c2b47f0c81?q=80&w=800&auto=format&fit=crop" class="plan-img" alt="Eléctricas">
+                    <div class="card-body">
+                        <h5 class="plan-title">Plano de Instalaciones Eléctricas</h5>
+                        <p class="small text-muted">Contiene el diseño de la red de energía. Incluye el sistema de <strong>Iluminación</strong> (lámparas y apagadores) y el sistema de <strong>Fuerza</strong> (tomacorrientes para equipos), además de tableros de control y acometidas seguras.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 12. Detalles Constructivos -->
+            <div class="col-md-6 col-lg-4 plan-card">
+                <div class="card service-card h-100">
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=800&auto=format&fit=crop" class="plan-img" alt="Detalles">
+                    <div class="card-body">
+                        <h5 class="plan-title">Plano de Detalles Constructivos</h5>
+                        <p class="small text-muted">Lupa técnica sobre puntos críticos. Muestra de forma ampliada la unión de materiales, el armado de columnas especiales, encuentros de techos y escaleras, sirviendo como guía de "zoom" indispensable para el constructor.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
