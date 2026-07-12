@@ -213,8 +213,11 @@ body:not(.dark-mode) .dark-mode-icon {
 }
 
 .hero {
-    background: var(--hero-overlay), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop') no-repeat center center/cover;
+    background-color: var(--hero-overlay);
+    background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop');
     background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
     min-height: 100vh;
     color: var(--text-main);
     display: flex;
@@ -609,7 +612,16 @@ iframe {
     font-weight: 600;
     color: var(--text-muted);
     line-height: 1.4;
-    transition: color 0.4s ease;
+    padding: 5px 10px;
+    border-radius: 50px;
+    color: #fff; /* Forzar texto blanco para mejor contraste */
+    transition: all 0.4s ease;
+
+    /* Efecto de vidrio esmerilado para un look más profesional */
+    background-color: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
 }
 
 .child-logo-link {
@@ -618,4 +630,6 @@ iframe {
 
 .child-logo-link:hover .child-logo-caption {
     color: var(--primary-color);
+    background-color: rgba(0, 0, 0, 0.4);
+    border-color: var(--primary-color);
 }

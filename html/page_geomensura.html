@@ -1,98 +1,66 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geomensura y Levantamientos - El Changarro de OZ</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <!-- Estilos compartidos del proyecto -->
-    <link rel="stylesheet" href="../css/styles.css">
-    <style>
-        body { padding: 20px; background-color: var(--bg-body); }
-        .plan-card { margin-bottom: 30px; }
-        .plan-img { height: 250px; object-fit: cover; border-radius: 15px 15px 0 0; }
-        .plan-title { color: var(--primary-color); font-weight: 700; margin-top: 15px; }
-        .badge-tech { background: var(--accent-glow); color: var(--primary-color); border: 1px solid var(--primary-color); }
-    </style>
-</head>
-<body class="dark-mode">
-    <script>
-        // Sincronización inmediata de tema
-        if (localStorage.getItem('theme') === 'light') document.body.classList.remove('dark-mode');
-    </script>
-    
-    <div class="container py-4">
-        <header class="text-center mb-5">
-            <h1 class="fw-bold text-gradient">Geomensura y Levantamientos</h1>
-            <p class="text-muted">Precisión milimétrica en la toma de datos del terreno para fines legales, técnicos y de construcción.</p>
-        </header>
+<!-- Fragmento de contenido para el modal de Geomensura -->
+<div class="container py-4">
+    <header class="text-center mb-5">
+        <h2 class="fw-bold text-gradient">Geomensura y Levantamientos</h2>
+        <p class="text-muted">Precisión milimétrica en la toma de datos del terreno para fines legales, técnicos y de construcción.</p>
+    </header>
 
-        <div class="row g-4">
-            <!-- 1. Planimetría Legal -->
-            <div class="col-md-6 col-lg-4 plan-card">
-                <div class="card service-card h-100">
-                    <img src="https://images.unsplash.com/photo-1590483734724-383b85ad0590?q=80&w=800&auto=format&fit=crop" class="plan-img" alt="Planimetría Legal">
-                    <div class="card-body">
-                        <span class="badge badge-tech mb-2">Planimetría</span>
-                        <h5 class="plan-title">Planos para Registro</h5>
-                        <p class="small text-muted">Realizamos levantamientos planimétricos de alta precisión para trámites legales. Generamos la documentación técnica necesaria para <strong>Unificación</strong>, <strong>Desmembración</strong> y primera inscripción de fincas en el Registro de la Propiedad.</p>
-                    </div>
+    <div class="row g-4">
+        <!-- 1. Planimetría Legal -->
+        <div class="col-md-6 col-lg-4 plan-card">
+            <div class="card service-card h-100">
+                <img src="https://images.unsplash.com/photo-1582213782179-e0d53f0dc33d?q=80&w=1000&auto=format&fit=crop" class="card-img-top" alt="Planimetría Legal" loading="lazy">
+                <div class="card-body">
+                    <span class="badge badge-tech mb-2">Planimetría</span>
+                    <h5 class="plan-title">Planos para Registro</h5>
+                    <p class="small text-muted">Realizamos levantamientos planimétricos de alta precisión para trámites legales. Generamos la documentación técnica necesaria para <strong>Unificación</strong>, <strong>Desmembración</strong> y primera inscripción de fincas en el Registro de la Propiedad.</p>
                 </div>
             </div>
+        </div>
 
-            <!-- 2. Altimetría para Construcción -->
-            <div class="col-md-6 col-lg-4 plan-card">
-                <div class="card service-card h-100 border-tech">
-                    <img src="../img/Ingenieria/Geomensura.png" class="plan-img" alt="Movimiento de Tierras">
-                    <div class="card-body">
-                        <span class="badge badge-tech mb-2">Altimetría</span>
-                        <h5 class="plan-title">Movimiento de Tierras</h5>
-                        <p class="small text-muted">Mediante levantamientos altimétricos, calculamos con exactitud el volumen de <strong>corte y relleno</strong> para la conformación de plataformas. Esencial para optimizar el uso de maquinaria y controlar los costos de la obra.</p>
-                    </div>
+        <!-- 2. Altimetría para Construcción -->
+        <div class="col-md-6 col-lg-4 plan-card">
+            <div class="card service-card h-100 border-tech">
+                <img src="https://images.unsplash.com/photo-1533090420-f56191438960?q=80&w=1000&auto=format&fit=crop" class="card-img-top" alt="Movimiento de Tierras" loading="lazy">
+                <div class="card-body">
+                    <span class="badge badge-tech mb-2">Altimetría</span>
+                    <h5 class="plan-title">Movimiento de Tierras</h5>
+                    <p class="small text-muted">Mediante levantamientos altimétricos, calculamos con exactitud el volumen de <strong>corte y relleno</strong> para la conformación de plataformas. Esencial para optimizar el uso de maquinaria y controlar los costos de la obra.</p>
                 </div>
             </div>
+        </div>
 
-            <!-- 3. Diseño de Parcelas -->
-            <div class="col-md-6 col-lg-4 plan-card">
-                <div class="card service-card h-100">
-                    <img src="https://images.unsplash.com/photo-1574950578143-85f030583425?q=80&w=800&auto=format&fit=crop" class="plan-img" alt="Diseño de Lotes">
-                    <div class="card-body">
-                        <h5 class="plan-title">Diseño y Distribución de Parcelas</h5>
-                        <p class="small text-muted">Planificación y distribución estratégica para lotificaciones y parcelamientos. Optimizamos el uso del área útil del terreno, diseñando lotes funcionales que cumplen con las normativas urbanísticas locales.</p>
-                    </div>
+        <!-- 3. Diseño de Parcelas -->
+        <div class="col-md-6 col-lg-4 plan-card">
+            <div class="card service-card h-100">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961dde?q=80&w=1000&auto=format&fit=crop" class="card-img-top" alt="Diseño de Lotes" loading="lazy">
+                <div class="card-body">
+                    <h5 class="plan-title">Diseño y Distribución de Parcelas</h5>
+                    <p class="small text-muted">Planificación y distribución estratégica para lotificaciones y parcelamientos. Optimizamos el uso del área útil del terreno, diseñando lotes funcionales que cumplen con las normativas urbanísticas locales.</p>
                 </div>
             </div>
+        </div>
 
-            <!-- 4. Topografía para Diseño -->
-            <div class="col-md-6 col-lg-4 plan-card">
-                <div class="card service-card h-100">
-                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop" class="plan-img" alt="Topografía">
-                    <div class="card-body">
-                        <h5 class="plan-title">Topografía para Diseño Arquitectónico</h5>
-                        <p class="small text-muted">Generamos modelos digitales del terreno (MDT) a partir de levantamientos de planimetría y altimetría. Proporcionamos <strong>curvas de nivel</strong>, perfiles y secciones transversales, datos indispensables para un diseño arquitectónico o de ingeniería bien fundamentado.</p>
-                    </div>
+        <!-- 4. Topografía para Diseño -->
+        <div class="col-md-6 col-lg-4 plan-card">
+            <div class="card service-card h-100">
+                <img src="https://images.unsplash.com/photo-1517030310243-d3455928d39e?q=80&w=1000&auto=format&fit=crop" class="card-img-top" alt="Topografía" loading="lazy">
+                <div class="card-body">
+                    <h5 class="plan-title">Topografía para Diseño Arquitectónico</h5>
+                    <p class="small text-muted">Generamos modelos digitales del terreno (MDT) a partir de levantamientos de planimetría y altimetría. Proporcionamos <strong>curvas de nivel</strong>, perfiles y secciones transversales, datos indispensables para un diseño arquitectónico o de ingeniería bien fundamentado.</p>
                 </div>
             </div>
+        </div>
 
-            <!-- 5. Replanteo de Obras -->
-            <div class="col-md-6 col-lg-4 plan-card">
-                <div class="card service-card h-100">
-                    <img src="https://images.unsplash.com/photo-1581092916322-3334a0a8e629?q=80&w=800&auto=format&fit=crop" class="plan-img" alt="Replanteo">
-                    <div class="card-body">
-                        <h5 class="plan-title">Replanteo Topográfico</h5>
-                        <p class="small text-muted">Trasladamos los diseños del plano al terreno físico. Marcamos con precisión milimétrica los ejes, límites y niveles de la construcción, asegurando que la obra se ejecute exactamente como fue planificada.</p>
-                    </div>
+        <!-- 5. Replanteo de Obras -->
+        <div class="col-md-6 col-lg-4 plan-card">
+            <div class="card service-card h-100">
+                <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?q=80&w=1000&auto=format&fit=crop" class="card-img-top" alt="Replanteo" loading="lazy">
+                <div class="card-body">
+                    <h5 class="plan-title">Replanteo Topográfico</h5>
+                    <p class="small text-muted">Trasladamos los diseños del plano al terreno físico. Marcamos con precisión milimétrica los ejes, límites y niveles de la construcción, asegurando que la obra se ejecute exactamente como fue planificada.</p>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+</div>

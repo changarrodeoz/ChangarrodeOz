@@ -1,75 +1,44 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ingeniería Civil - El Changarro de OZ</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <!-- Estilos compartidos del proyecto -->
-    <link rel="stylesheet" href="../css/styles.css">
-    <style>
-        body { padding: 20px; background-color: var(--bg-body); }
-        .plan-card { margin-bottom: 30px; }
-        .plan-img { height: 250px; object-fit: cover; border-radius: 15px 15px 0 0; }
-        .plan-title { color: var(--primary-color); font-weight: 700; margin-top: 15px; }
-        .badge-tech { background: var(--accent-glow); color: var(--primary-color); border: 1px solid var(--primary-color); }
-    </style>
-</head>
-<body class="dark-mode">
-    <script>
-        // Sincronización inmediata de tema
-        if (localStorage.getItem('theme') === 'light') document.body.classList.remove('dark-mode');
-    </script>
-    <div class="container py-4">
-        <header class="text-center mb-5">
-            <h1 class="fw-bold text-gradient">Servicios de Ingeniería Civil</h1>
-            <p class="text-muted">Diseño de infraestructura y sistemas vitales para el desarrollo urbano y rural con rigor técnico.</p>
-        </header>
+<!-- Fragmento de contenido para el modal de Ingeniería Civil -->
+<div class="container py-4">
+    <header class="text-center mb-5">
+        <h2 class="fw-bold text-gradient">Servicios de Ingeniería Civil</h2>
+        <p class="text-muted">Diseño de infraestructura y sistemas vitales para el desarrollo urbano y rural con rigor técnico.</p>
+    </header>
 
-        <div class="row g-4">
-            <!-- 1. Sistemas Hidrosanitarios -->
-            <div class="col-md-6 col-lg-4 plan-card">
-                <div class="card service-card h-100">
-                    <img src="../img/Ingenieria/Ingenieria.png" class="plan-img" alt="Hidrosanitarios">
-                    <div class="card-body">
-                        <span class="badge badge-tech mb-2">Sistemas Vitales</span>
-                        <h5 class="plan-title">Planos Hidrosanitarios</h5>
-                        <p class="small text-muted">Cálculo y diseño de redes de agua potable y sistemas de drenaje para proyectos <strong>habitacionales y comunitarios</strong>. Garantizamos soluciones eficientes y sostenibles para la gestión de fluidos.</p>
-                    </div>
+    <div class="row g-4">
+        <!-- 1. Sistemas Hidrosanitarios -->
+        <div class="col-md-6 col-lg-4 plan-card">
+            <div class="card service-card h-100">
+                <img src="https://images.unsplash.com/photo-1581092281397-f0504780655c?q=80&w=1000&auto=format&fit=crop" class="card-img-top" alt="Hidrosanitarios" loading="lazy">
+                <div class="card-body">
+                    <span class="badge badge-tech mb-2">Sistemas Vitales</span>
+                    <h5 class="plan-title">Planos Hidrosanitarios</h5>
+                    <p class="small text-muted">Cálculo y diseño de redes de agua potable y sistemas de drenaje para proyectos <strong>habitacionales y comunitarios</strong>. Garantizamos soluciones eficientes y sostenibles para la gestión de fluidos.</p>
                 </div>
             </div>
+        </div>
 
-            <!-- 2. Calles y Avenidas -->
-            <div class="col-md-6 col-lg-4 plan-card">
-                <div class="card service-card h-100">
-                    <img src="https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?q=80&w=800&auto=format&fit=crop" class="plan-img" alt="Diseño de Vías Urbanas">
-                    <div class="card-body">
-                        <h5 class="plan-title">Calles y Avenidas</h5>
-                        <p class="small text-muted">Planificación y diseño de vías urbanas. Optimizamos la circulación vehicular y peatonal, integrando soluciones de drenaje pluvial y cumpliendo con todas las normativas de seguridad vigentes.</p>
-                    </div>
+        <!-- 2. Calles y Avenidas -->
+        <div class="col-md-6 col-lg-4 plan-card">
+            <div class="card service-card h-100">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961dde?q=80&w=1000&auto=format&fit=crop" class="card-img-top" alt="Diseño de Vías Urbanas" loading="lazy">
+                <div class="card-body">
+                    <h5 class="plan-title">Calles y Avenidas</h5>
+                    <p class="small text-muted">Planificación y diseño de vías urbanas. Optimizamos la circulación vehicular y peatonal, integrando soluciones de drenaje pluvial y cumpliendo con todas las normativas de seguridad vigentes.</p>
                 </div>
             </div>
+        </div>
 
-            <!-- 3. Diseño de Carreteras -->
-            <div class="col-md-6 col-lg-4 plan-card">
-                <div class="card service-card h-100 border-tech">
-                    <img src="https://images.unsplash.com/photo-1465447142348-e9952c393450?q=80&w=800&auto=format&fit=crop" class="plan-img" alt="Carreteras">
-                    <div class="card-body">
-                        <span class="badge badge-tech mb-2">Infraestructura</span>
-                        <h5 class="plan-title">Diseño de Carreteras</h5>
-                        <p class="small text-muted">Ingeniería de alta precisión para el <strong>trazado geométrico</strong>, diseño de pavimentos y obras complementarias (cunetas, alcantarillas) para carreteras, garantizando durabilidad y máxima seguridad vial.</p>
-                    </div>
+        <!-- 3. Diseño de Carreteras -->
+        <div class="col-md-6 col-lg-4 plan-card">
+            <div class="card service-card h-100 border-tech">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961dde?q=80&w=1000&auto=format&fit=crop" class="card-img-top" alt="Carreteras" loading="lazy">
+                <div class="card-body">
+                    <span class="badge badge-tech mb-2">Infraestructura</span>
+                    <h5 class="plan-title">Diseño de Carreteras</h5>
+                    <p class="small text-muted">Ingeniería de alta precisión para el <strong>trazado geométrico</strong>, diseño de pavimentos y obras complementarias (cunetas, alcantarillas) para carreteras, garantizando durabilidad y máxima seguridad vial.</p>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+</div>
