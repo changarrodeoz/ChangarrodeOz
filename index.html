@@ -104,6 +104,43 @@
         </div>
     </section>
 
+    <!-- Categorías de Servicio -->
+    <section id="categorias" class="section-padding">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-12">
+                    <h2 class="category-title mx-auto mb-5 reveal">Nuestras Áreas de Expertise</h2>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 reveal">
+                    <div class="card service-card p-4 h-100 text-center">
+                        <div class="icon-box mx-auto"><i class="bi bi-rulers"></i></div>
+                        <h4 class="fw-bold mb-3">Arquitectura e Ing. Civil</h4>
+                        <p class="text-muted small">Desde el diseño de planos y renders 3D hasta la topografía de precisión y el desarrollo de infraestructura. Materializamos tus proyectos con rigor técnico y creatividad.</p>
+                        <a href="#obra-civil" class="btn btn-sm btn-tech-outline mt-auto">Ver Servicios</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 reveal">
+                    <div class="card service-card p-4 h-100 text-center border-tech">
+                        <div class="icon-box mx-auto"><i class="bi bi-pc-display-horizontal"></i></div>
+                        <h4 class="fw-bold mb-3">Soluciones Informáticas</h4>
+                        <p class="text-muted small">Optimiza tu productividad con nuestro soporte técnico especializado, venta de equipos de alto rendimiento y consultoría en software para garantizar tu flujo de trabajo digital.</p>
+                        <a href="#informatica" class="btn btn-sm btn-tech-outline mt-auto">Ver Servicios</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 reveal">
+                    <div class="card service-card p-4 h-100 text-center">
+                        <div class="icon-box mx-auto"><i class="bi bi-file-earmark-text"></i></div>
+                        <h4 class="fw-bold mb-3">Gestión Documental</h4>
+                        <p class="text-muted small">Ahorra tiempo y evita filas. Realizamos tus gestiones de forma 100% digital, incluyendo trámites SAT, obtención de antecedentes policiales, penales y más.</p>
+                        <a href="#documentos" class="btn btn-sm btn-tech-outline mt-auto">Ver Servicios</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Obra Civil (Sección abreviada para el ejemplo) -->
     <section id="obra-civil" class="section-padding bg-light">
         <div class="container">
@@ -236,17 +273,17 @@
                     <div class="card service-card h-100">
                         <div class="card-body p-4">
                             <h4 class="mb-3 d-flex align-items-center">
-                                <img src="img/GeDocu/Logo Sat.png" alt="SAT" class="doc-header-icon me-2">
+                                <img src="img/GeDocu/logo-sat.png" alt="SAT" class="doc-header-icon me-2">
                                 Trámites SAT
                             </h4>
                             <div class="accordion accordion-flush" id="accordionSAT">
                                 <div class="accordion-item bg-transparent">
                                     <h2 class="accordion-header">
-                                        <button class="accordion-button collapsed px-0 bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#sat1">
+                                        <button class="accordion-button collapsed px-0 bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#doc-sat1">
                                             Gestión de RTU
                                         </button>
                                     </h2>
-                                    <div id="sat1" class="accordion-collapse collapse">
+                                    <div id="doc-sat1" class="accordion-collapse collapse">
                                         <div class="accordion-body px-0">
                                             <img src="img/GeDocu/RTU.png" class="img-fluid rounded mb-2 img-service-deploy" alt="RTU" loading="lazy">
                                             <p class="small text-muted">Actualización y gestión completa de tu Registro Tributario Unificado.</p>
@@ -255,13 +292,13 @@
                                 </div>
                                 <div class="accordion-item bg-transparent">
                                     <h2 class="accordion-header">
-                                        <button class="accordion-button collapsed px-0 bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#sat2">
+                                        <button class="accordion-button collapsed px-0 bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#doc-sat2">
                                             Impresión de Tarjeta de Circulación y Calcomanía
                                         </button>
                                     </h2>
-                                    <div id="sat2" class="accordion-collapse collapse">
+                                    <div id="doc-sat2" class="accordion-collapse collapse">
                                         <div class="accordion-body px-0">
-                                            <img src="img/GeDocu/Tarjeta Circulaciòn.png" class="img-fluid rounded mb-2 img-service-deploy" alt="Calcomanía" loading="lazy">
+                                            <img src="img/GeDocu/tarjeta-circulacion.png" class="img-fluid rounded mb-2 img-service-deploy" alt="Calcomanía" loading="lazy">
                                             <p class="small text-muted">Obtención rápida de calcomanías de circulación vigentes.</p>
                                         </div>
                                     </div>
@@ -285,7 +322,7 @@
                                             Antecedentes Policiacos
                                         </button>
                                     </h2>
-                                    <div id="ant1" class="accordion-collapse collapse">
+                                    <div id="doc-ant1" class="accordion-collapse collapse">
                                         <div class="accordion-body px-0">
                                             <img src="img/GeDocu/policial.png" class="img-fluid rounded mb-2 img-service-deploy" alt="Antecedentes Policiacos" loading="lazy">
                                             <p class="small text-muted">Obtención ágil de tu carencia de antecedentes de la Policía Nacional Civil.</p>
@@ -294,11 +331,11 @@
                                 </div>
                                 <div class="accordion-item bg-transparent">
                                     <h2 class="accordion-header">
-                                        <button class="accordion-button collapsed px-0 bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#ant2">
+                                        <button class="accordion-button collapsed px-0 bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#doc-ant2">
                                             Antecedentes Penales
                                         </button>
                                     </h2>
-                                    <div id="ant2" class="accordion-collapse collapse">
+                                    <div id="doc-ant2" class="accordion-collapse collapse">
                                         <div class="accordion-body px-0">
                                             <img src="img/GeDocu/penal.png" class="img-fluid rounded mb-2 img-service-deploy" alt="Antecedentes Penales" loading="lazy">
                                             <p class="small text-muted">Gestión efectiva de tu constancia de antecedentes penales del Organismo Judicial.</p>

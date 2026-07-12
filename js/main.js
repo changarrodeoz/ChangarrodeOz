@@ -197,19 +197,6 @@ function initUI() {
         });
     });
 
-    // Lógica para el Lightbox de Documentos
-    const lightboxElement = document.getElementById('modalLightbox');
-    if (lightboxElement) {
-        const lightboxModal = new bootstrap.Modal(lightboxElement);
-        const lightboxImg = document.getElementById('lightboxImage');
-        document.querySelectorAll('.img-service-deploy').forEach(img => {
-            img.addEventListener('click', () => {
-                lightboxImg.src = img.src;
-                lightboxModal.show();
-            });
-        });
-    }
-
     // Lógica mejorada para modales sin iframes
     document.querySelectorAll('[data-bs-toggle="modal"]').forEach(trigger => {
         const targetModalId = trigger.getAttribute('data-bs-target');
@@ -278,19 +265,6 @@ function handleNavbarScroll() {
         navbar.classList.add(document.body.classList.contains('dark-mode') ? 'shadow-lg' : 'shadow-sm');
     } else {
         navbar.classList.remove('scrolled', 'shadow', 'shadow-lg', 'shadow-sm');
-    }
-}
-
-/**
- * Maneja la redirección de contacto
- * @param {string} type - Tipo de contacto (whatsapp/email)
- */
-function handleContact(type) {
-    if (type === 'whatsapp') {
-        // Sincronizado con el número de la barra lateral
-        window.open('https://wa.me/50253534441?text=Hola, me interesa un servicio de El Changarro de OZ', '_blank');
-    } else {
-        window.location.href = 'mailto:changarrodeoz@gmail.com?subject=Consulta de Servicios';
     }
 }
 

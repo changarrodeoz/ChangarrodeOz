@@ -1,2 +1,0 @@
-ahora necesitamos informacion para los archivos: "/html/page_IngCivil.html" y /html/page_geomensura.html, los servicios para ingenieria son, Calulo y planos Hidrosanitarios para proyectos (habitacionales y comunitarios), calles y avenidas, diseño de carreteras. Informacion topografica planimetria o altimetria para planos de Registro, Unificacion, Desmembracion, Diseño y distribucion de parcelas, calculo de corte y relleno de plataformas. distribuirlo en el archivo "html" segun el tipo de servicios, incluir mas si hace falta
-"msp"
