@@ -1,6 +1,28 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    // Carga de componentes externos
-    await loadComponent('header-placeholder', 'html/header.html', true); // El 'true' indica que es el último componente principal
+    // Cargar el header primero porque es esencial para la UI inicial
+    await loadComponent('header-placeholder', 'html/header.html', true);
+
+    // Cargar los componentes restantes en paralelo
+    Promise.all([
+        loadComponent('footer-placeholder', 'html/footer.html', false, true), // isOptional = true
+        loadComponent('icons-placeholder', 'html/icons.html')
+    ]).then(() => {
+        // Una vez que el footer y la barra lateral están cargados, ejecutar la lógica que los conecta
+        loadComponent('footer-social-icons', 'html/nav_icons.html'); // Cargar iconos dentro del footer
+        
+        const yearSpan = document.getElementById('copyright-year'); // Actualizar año
+        if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+        
+        const socialSidebar = document.querySelector('.social-sidebar');
+        const footer = document.querySelector('.footer-main');
+        
+        if (socialSidebar && footer) {
+            const footerObserver = new IntersectionObserver(entries => {
+                entries.forEach(entry => socialSidebar.classList.toggle('hidden', entry.isIntersecting));
+            }, { threshold: 0.1 });
+            footerObserver.observe(footer);
+        }
+    }).catch(err => console.error("Error cargando componentes secundarios:", err));
 });
 
 /**
@@ -8,72 +30,74 @@ document.addEventListener('DOMContentLoaded', async () => {
  * @param {string} id El ID del contenedor.
  * @param {string} path La ruta al archivo HTML.
  * @param {boolean} isLast Indica si este es el último componente en cargar para inicializar la UI.
+ * @param {boolean} isOptional Si es true, un error 404 no detendrá la ejecución.
  */
-async function loadComponent(id, path, isLast = false) {
+async function loadComponent(id, path, isLast = false, isOptional = false) {
     const container = document.getElementById(id);
-    if (!container) return;
+    if (!container) { if (isOptional) { return; } else { console.error(`Contenedor con ID "${id}" no encontrado.`); return; } }
     try {
         const response = await fetch(path);
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const html = await response.text();
         container.innerHTML = html;
-        if (isLast) {
-            initUI();
-        }
+        if (isLast) initUI(); // Iniciar UI tan pronto como el header esté listo
     } catch (err) {
-        console.error(`Error cargando ${path}:`, err);
+        if (isOptional && err.message.includes('404')) {
+            console.warn(`Componente opcional no encontrado en ${path}. Omitiendo.`);
+        }
+        console.error(`Error al cargar el componente ${path}:`, err);
     }
 }
 
 function initUI() {
-    // Configuración de visualización
-    const SCROLL_THRESHOLD = 0.6; // Umbral optimizado para secciones centradas
-
-    // Ocultar el preloader tan pronto como la UI esté lista para ser interactiva
+    // Ocultar el preloader
     const preloader = document.getElementById('preloader');
     if (preloader) {
         preloader.style.opacity = '0';
-        setTimeout(() => preloader.style.display = 'none', 800); // Sincronizado con la transición CSS
+        setTimeout(() => preloader.style.display = 'none', 800);
     }
 
-    const contactButtons = document.querySelectorAll('.contact-btn');
-    // Cargar componentes secundarios que no son críticos para la inicialización de la UI
-    loadComponent('footer-placeholder', 'html/footer.html');
-    loadComponent('icons-placeholder', 'html/icons.html');
+    // Inicializar todos los módulos de la UI
+    setupTheme();
+    setupNavbar();
+    setupScrollSpy();
+    setupRevealAnimations();
+    setupBannerDescription();
+    setupAutoAccordions();
+    setupDynamicModals();
 
-    const navLinks = document.querySelectorAll('.nav-link');
+    // La delegación de eventos ya está configurada globalmente al final del archivo
+}
+
+/** Configura el interruptor de tema (claro/oscuro) */
+function setupTheme() {
     const themeToggle = document.getElementById('theme-toggle');
+    if (!themeToggle) return;
 
-    // Lógica de Temas (Light/Dark)
-    const savedTheme = localStorage.getItem('theme') || 'dark'; // Dark por defecto para sofisticación tech
+    const savedTheme = localStorage.getItem('theme') || 'dark';
     document.body.classList.toggle('dark-mode', savedTheme === 'dark');
 
     themeToggle.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
         const isDark = document.body.classList.contains('dark-mode');
-        const newTheme = isDark ? 'dark' : 'light';
-        localStorage.setItem('theme', newTheme);
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
 
-        // Sincronizar dinámicamente cualquier iframe (modal) abierto
+        // Sincronizar tema en iframes abiertos (si aplica)
         document.querySelectorAll('iframe').forEach(iframe => {
             try {
                 if (iframe.contentWindow && iframe.contentDocument && iframe.contentDocument.body && iframe.origin === window.location.origin) {
                     iframe.contentDocument.body.classList.toggle('dark-mode', isDark);
                 }
             } catch (e) {
-                // Ignorar posibles restricciones de seguridad si el iframe fuera externo
+                // Ignorar errores de seguridad con iframes de origen cruzado
             }
         });
     });
+}
 
-    contactButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            const type = e.currentTarget.getAttribute('data-type');
-            handleContact(type);
-        });
-    });
-
-    // Gestionar estado activo de la navegación basado en la URL actual
+/** Configura la navegación principal, enlaces y scrollspy */
+function setupNavbar() {
+    const navLinks = document.querySelectorAll('.nav-link');
     const currentPath = window.location.pathname.split('/').pop() || 'index.html';
     const currentHash = window.location.hash;
     const isIndexPage = currentPath === 'index.html' || currentPath === '';
@@ -82,15 +106,14 @@ function initUI() {
         let href = link.getAttribute('href') || '';
         const linkFile = href.split('#')[0].split('/').pop() || 'index.html';
         const hash = href.includes('#') ? '#' + href.split('#')[1] : '';
-
-        // Lógica simplificada para marcar el enlace activo en la carga inicial
+        
         const isCurrentPageLink = linkFile === currentPath;
         const isAnchorForCurrentPage = isIndexPage && hash;
 
         if (isCurrentPageLink && !isAnchorForCurrentPage) {
-             link.classList.add('active');
+            link.classList.add('active');
         } else if (isIndexPage && hash === currentHash) {
-             link.classList.add('active');
+            link.classList.add('active');
         } else if (isIndexPage && (currentHash === '' || currentHash === '#') && href.endsWith('#inicio')) {
              link.classList.add('active');
         } else {
@@ -98,15 +121,12 @@ function initUI() {
         }
 
         link.addEventListener('click', function(e) {
-            // Si el enlace tiene un ancla y apunta a la página actual o a index.html estando en la raíz
             if (hash && (linkFile === currentPath || (currentPath === 'index.html' && linkFile === ''))) {
-                const targetElement = document.querySelector(hash); // hash ya incluye '#'
+                const targetElement = document.querySelector(hash);
                 if (targetElement) {
                     e.preventDefault();
                     targetElement.scrollIntoView({ behavior: 'smooth' });
-                    
-                    // Actualizar estado visual
-                    navLinks.forEach(l => l.classList.remove('active'));
+                    navLinks.forEach(l => l.classList.remove('active')); // Actualizar estado visual
                     this.classList.add('active');
                     
                     // Cerrar menú móvil si está desplegado
@@ -119,12 +139,12 @@ function initUI() {
         });
     });
 
-    // Efecto de navbar al hacer scroll (registrado después de la inyección)
     window.addEventListener('scroll', handleNavbarScroll);
-    
-    // Ejecutar una vez al inicio por si la página ya tiene scroll
     handleNavbarScroll();
+}
 
+/** Configura las animaciones de revelado al hacer scroll */
+function setupRevealAnimations() {
     // Animación de revelado al hacer scroll
     const revealElements = document.querySelectorAll('.reveal');
     const revealObserver = new IntersectionObserver((entries) => {
@@ -139,30 +159,58 @@ function initUI() {
     });
 
     revealElements.forEach(el => revealObserver.observe(el));
+}
 
-    // ScrollSpy: Detectar la sección activa dinámicamente al hacer scroll
+/** Configura el ScrollSpy para actualizar la navegación activa */
+function setupScrollSpy() {
+    const isIndexPage = (window.location.pathname.split('/').pop() || 'index.html') === 'index.html';
     if (isIndexPage) {
         const spySections = document.querySelectorAll('header[id], section[id]');
         const spyObserver = new IntersectionObserver((entries) => {
-            // Encontrar la sección que está más visible en el viewport
             const visibleSection = entries.find(entry => entry.isIntersecting)?.target;
             if (!visibleSection) return;
 
             const id = visibleSection.getAttribute('id');
             const activeLink = document.querySelector(`.nav-link[href$="#${id}"]`);
 
-            // Quitar 'active' de todos y añadirlo solo al enlace correcto
-            navLinks.forEach(link => link.classList.remove('active'));
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
             if (activeLink) {
                 activeLink.classList.add('active');
             }
-            // El bucle entries.forEach vacío ha sido eliminado para mayor limpieza.
         }, {
-            rootMargin: '-20% 0px -75% 0px' // Margen para activar el enlace justo antes de que la sección llegue arriba
+            rootMargin: '-20% 0px -75% 0px'
         });
+
         spySections.forEach(section => spyObserver.observe(section));
     }
+}
 
+/** Configura la descripción flotante en el banner */
+function setupBannerDescription() {
+    // Lógica para la descripción compartida en el banner
+    const logoContainer = document.querySelector('.child-logos-container');
+    const toastContainer = document.getElementById('toast-description');
+    const toastText = document.getElementById('toast-description-text');
+
+    if (logoContainer && toastContainer && toastText) {
+        const logoLinks = logoContainer.querySelectorAll('.child-logo-link');
+        
+        logoLinks.forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                toastText.textContent = link.dataset.description || '';
+                toastContainer.classList.add('show');
+            });
+        });
+
+        logoContainer.addEventListener('mouseleave', () => {
+            toastContainer.classList.remove('show');
+        });
+    }
+}
+
+/** Configura los acordeones que se despliegan con scroll o hover */
+function setupAutoAccordions() {
+    const SCROLL_THRESHOLD = 0.6;
     /**
      * Activa un servicio de forma permanente (solo anima la apertura)
      */
@@ -193,8 +241,10 @@ function initUI() {
             activateService(item.querySelector('.accordion-collapse'));
         });
     });
+}
 
-    // Lógica mejorada para modales sin iframes
+/** Configura los disparadores de modales para cargar contenido dinámico */
+function setupDynamicModals() {
     document.querySelectorAll('[data-bs-toggle="modal"]').forEach(trigger => {
         const targetModalId = trigger.getAttribute('data-bs-target');
         if (!targetModalId) return;
@@ -202,7 +252,6 @@ function initUI() {
         const targetModal = document.querySelector(targetModalId);
         const contentPath = trigger.getAttribute('data-content-path');
 
-        // Solo actuar sobre los modales que cargarán contenido dinámico
         if (targetModal && contentPath) {
             trigger.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -211,7 +260,6 @@ function initUI() {
         }
     });
 }
-
 /**
  * Carga contenido HTML en un modal dinámicamente usando fetch.
  * @param {string} modalSelector - El selector CSS para el modal (ej: '#modalArq').
@@ -232,7 +280,6 @@ async function openModalWithContent(modalSelector, path) {
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const html = await response.text();
         modalBody.innerHTML = html;
-        modal.show();
     } catch (err) {
         console.error(`Error cargando contenido para el modal ${modalSelector}:`, err);
         modalBody.innerHTML = `<p class="p-4 text-danger">Error al cargar el contenido. Por favor, intente más tarde.</p>`;
@@ -260,12 +307,38 @@ function handleNavbarScroll() {
     if (!navbar) return;
 
     const isScrolled = window.scrollY > 80;
+    navbar.classList.toggle('navbar-on-hero', !isScrolled);
     navbar.classList.toggle('scrolled', isScrolled);
-    navbar.classList.toggle('shadow-lg', isScrolled && document.body.classList.contains('dark-mode'));
-    navbar.classList.toggle('shadow-sm', isScrolled && !document.body.classList.contains('dark-mode'));
+    navbar.classList.toggle('shadow-lg', isScrolled);
 }
 
-// Delegación de eventos para el Lightbox, para que funcione con contenido cargado dinámicamente
+/**
+ * Actualiza el contenido de la tarjeta de servicios de documentos.
+ * @param {HTMLElement} serviceItem - El elemento del botón de servicio que fue activado.
+ */
+function updateDocServiceContent(serviceItem) {
+    const container = serviceItem.closest('.doc-card-container');
+    if (!container) return;
+
+    // 1. Actualizar estado activo del botón
+    const siblings = container.querySelectorAll('.doc-service-item');
+    siblings.forEach(sib => sib.classList.remove('active'));
+    serviceItem.classList.add('active');
+
+    // 2. Obtener datos y actualizar contenido
+    const { title, text, img } = serviceItem.dataset;
+    const contentDisplay = container.querySelector('.doc-content-display');
+    const contentImg = contentDisplay.querySelector('img');
+    const contentTitle = contentDisplay.querySelector('.doc-content-title');
+    const contentText = contentDisplay.querySelector('.doc-content-text');
+
+    contentImg.src = img; contentImg.alt = title; contentTitle.textContent = title; contentText.textContent = text;
+}
+
+// --- DELEGACIÓN DE EVENTOS GLOBALES ---
+// Usar delegación de eventos en el `document` es eficiente y funciona
+// para contenido cargado dinámicamente (como en los modales).
+
 document.addEventListener('click', function (event) {
     if (event.target.matches('.img-service-deploy')) {
         const lightboxElement = document.getElementById('modalLightbox');
@@ -275,5 +348,35 @@ document.addEventListener('click', function (event) {
             lightboxImg.src = event.target.src;
             lightboxModal.show();
         }
+    }
+
+    const serviceItem = event.target.closest('.doc-service-item');
+    if (serviceItem) {
+        updateDocServiceContent(serviceItem);
+    }
+
+    const contactBtn = event.target.closest('.contact-btn');
+    if (contactBtn) {
+        handleContact(contactBtn.dataset.type);
+    }
+
+    const socialLink = event.target.closest('.js-social-popup');
+    if (socialLink) {
+        event.preventDefault();
+        const url = socialLink.href;
+        const windowName = 'socialPopup';
+        const width = 800;
+        const height = 600;
+        const left = (screen.width / 2) - (width / 2);
+        const top = (screen.height / 2) - (height / 2);
+        const windowFeatures = `width=${width},height=${height},scrollbars=yes,resizable=yes,left=${left},top=${top}`;
+        window.open(url, windowName, windowFeatures);
+    }
+});
+
+document.addEventListener('mouseover', function (event) {
+    const serviceItem = event.target.closest('.doc-service-item');
+    if (serviceItem) {
+        updateDocServiceContent(serviceItem);
     }
 });

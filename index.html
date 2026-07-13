@@ -34,32 +34,35 @@
 
     <main class="mesh-bg">
     <!-- Hero Section -->
-    <header id="inicio" class="hero">
+    <header id="inicio" class="hero force-dark-theme">
+        <div class="hero-background"></div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-10 mx-auto">
-                    <h1 class="display-4 fw-bold reveal delay-1">Innovación Integral <span class="text-gradient">Sin Salir de Casa</span></h1>
-                    <p class="lead mb-4 opacity-75 reveal delay-2">Soluciones de alta precisión en Arquitectura, Ingeniería, Informática y Gestión Documental.</p>
+                <div class="col-lg-10 mx-auto text-center">
+                    <h1 class="display-3 fw-bold reveal delay-1">Precisión Técnica, <br><span class="text-primary">Ejecución Digital</span></h1>
+                    <p class="lead mb-5 opacity-75 reveal delay-2">Desde el diseño arquitectónico hasta la gestión documental, integramos soluciones de ingeniería e informática para garantizar la excelencia en cada proyecto.</p>
                     
                     <div class="child-logos-container reveal delay-3">
-                        <a href="#obra-civil" class="child-logo-link">
-                            <div class="child-logo-wrapper">
-                                <img src="img/Logo_RqIng.png" alt="Arq e Ing" class="child-logo-hero" title="Arquitectura e Ingeniería Civil">
-                                <p class="child-logo-caption">Arquitectura e Ingeniería Civil</p>
-                            </div>
-                        </a>
-                        <a href="#informatica" class="child-logo-link">
-                            <div class="child-logo-wrapper">
-                                <img src="img/Logo_Infor.png" alt="Informática" class="child-logo-hero" title="Soluciones Informáticas">
-                                <p class="child-logo-caption">Soluciones Informáticas</p>
-                            </div>
-                        </a>
-                        <a href="#documentos" class="child-logo-link">
-                            <div class="child-logo-wrapper">
-                                <img src="img/Logo_GestDoc.png" alt="Documentos" class="child-logo-hero" title="Gestión de Documentos Digitales">
-                                <p class="child-logo-caption">Antecedentes, RTU, tarjeta de circulación y Calcomanía</p>
-                            </div>
-                        </a>
+                        <div class="child-logo-grid">
+                            <a href="#obra-civil" class="child-logo-link" data-description="Diseño de planos, renders 3D, topografía y desarrollo de infraestructura.">
+                                <div class="child-logo-wrapper">
+                                    <img src="img/Logo_RqIng.png" alt="Arq e Ing" class="child-logo-hero icon-needs-inversion" title="Arquitectura e Ingeniería Civil">
+                                    <p class="child-logo-caption">Arq. & Ing. Civil</p>
+                                </div>
+                            </a>
+                            <a href="#informatica" class="child-logo-link" data-description="Soporte técnico, venta de equipos y consultoría para optimizar tu flujo de trabajo.">
+                                <div class="child-logo-wrapper">
+                                    <img src="img/Logo_Infor.png" alt="Informática" class="child-logo-hero icon-original-color" title="Soluciones Informáticas">
+                                    <p class="child-logo-caption">IT & Software</p>
+                                </div>
+                            </a>
+                            <a href="#documentos" class="child-logo-link" data-description="Trámites SAT, antecedentes y más, de forma 100% digital y sin filas.">
+                                <div class="child-logo-wrapper">
+                                    <img src="img/Logo_GestDoc.png" alt="Documentos" class="child-logo-hero icon-original-color" title="Gestión de Documentos Digitales">
+                                    <p class="child-logo-caption">Gestión Digital</p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
 
                     <div class="reveal delay-3 mt-5"><a href="#nosotros" class="btn btn-tech btn-lg px-5 text-white">Descubre Nuestro Propósito</a></div>
@@ -74,22 +77,22 @@
             <div class="row g-4 text-center">
                 <div class="col-md-4 reveal">
                     <div class="card service-card p-4 h-100">
-                        <div class="icon-box mx-auto"><i class="bi bi-rocket-takeoff"></i></div>
-                        <h3 class="fw-bold mb-3 text-gradient">Misión</h3>
+                        <div class="icon-box mx-auto text-primary"><i class="bi bi-rocket-takeoff"></i></div>
+                        <h3 class="fw-bold mb-3 text-primary">Misión</h3>
                         <p class="text-muted small">Empoderar el desarrollo de proyectos arquitectónicos, civiles y tecnológicos mediante soluciones de precisión quirúrgica, integrando la ingeniería avanzada y el soporte digital en un ecosistema único de confianza y eficiencia.</p>
                     </div>
                 </div>
                 <div class="col-md-4 reveal">
                     <div class="card service-card p-4 h-100">
-                        <div class="icon-box mx-auto"><i class="bi bi-eye"></i></div>
-                        <h3 class="fw-bold mb-3 text-gradient">Visión</h3>
+                        <div class="icon-box mx-auto text-primary"><i class="bi bi-eye"></i></div>
+                        <h3 class="fw-bold mb-3 text-primary">Visión</h3>
                         <p class="text-muted small">Consolidarnos como el referente regional indiscutible en servicios multi-técnicos, liderando la transformación digital de la construcción y la informática para entregar resultados que marquen el estándar de oro en calidad e innovación.</p>
                     </div>
                 </div>
                 <div class="col-md-4 reveal">
                     <div class="card service-card p-4 h-100">
-                        <div class="icon-box mx-auto"><i class="bi bi-shield-check"></i></div>
-                        <h3 class="fw-bold mb-3 text-gradient">Valores</h3>
+                        <div class="icon-box mx-auto text-primary"><i class="bi bi-shield-check"></i></div>
+                        <h3 class="fw-bold mb-3 text-primary">Valores</h3>
                         <div class="text-start mx-auto" style="max-width: 230px;">
                             <ul class="list-unstyled text-muted small mb-0">
                                 <li class="mb-2"><i class="bi bi-check2-circle text-primary me-2"></i><strong>Innovación Ágil:</strong> Soluciones modernas a retos tradicionales.</li>
@@ -104,48 +107,11 @@
         </div>
     </section>
 
-    <!-- Categorías de Servicio -->
-    <section id="categorias" class="section-padding">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-12">
-                    <h2 class="category-title mx-auto mb-5 reveal">Nuestras Áreas de Expertise</h2>
-                </div>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6 reveal">
-                    <div class="card service-card p-4 h-100 text-center">
-                        <div class="icon-box mx-auto"><i class="bi bi-rulers"></i></div>
-                        <h4 class="fw-bold mb-3">Arquitectura e Ing. Civil</h4>
-                        <p class="text-muted small">Desde el diseño de planos y renders 3D hasta la topografía de precisión y el desarrollo de infraestructura. Materializamos tus proyectos con rigor técnico y creatividad.</p>
-                        <a href="#obra-civil" class="btn btn-sm btn-tech-outline mt-auto">Ver Servicios</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 reveal">
-                    <div class="card service-card p-4 h-100 text-center border-tech">
-                        <div class="icon-box mx-auto"><i class="bi bi-pc-display-horizontal"></i></div>
-                        <h4 class="fw-bold mb-3">Soluciones Informáticas</h4>
-                        <p class="text-muted small">Optimiza tu productividad con nuestro soporte técnico especializado, venta de equipos de alto rendimiento y consultoría en software para garantizar tu flujo de trabajo digital.</p>
-                        <a href="#informatica" class="btn btn-sm btn-tech-outline mt-auto">Ver Servicios</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 reveal">
-                    <div class="card service-card p-4 h-100 text-center">
-                        <div class="icon-box mx-auto"><i class="bi bi-file-earmark-text"></i></div>
-                        <h4 class="fw-bold mb-3">Gestión Documental</h4>
-                        <p class="text-muted small">Ahorra tiempo y evita filas. Realizamos tus gestiones de forma 100% digital, incluyendo trámites SAT, obtención de antecedentes policiales, penales y más.</p>
-                        <a href="#documentos" class="btn btn-sm btn-tech-outline mt-auto">Ver Servicios</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Obra Civil (Sección abreviada para el ejemplo) -->
     <section id="obra-civil" class="section-padding bg-light">
         <div class="container">
             <h2 class="category-title text-center mx-auto mb-5 reveal d-flex align-items-center justify-content-center gap-3 flex-wrap">
-                <img src="img/Logo_RqIng.png" alt="Logo Arquitectura e Ingeniería Civil" height="60" class="flex-shrink-0">
+                <img src="img/Logo_RqIng.png" alt="Logo Arquitectura e Ingeniería Civil" height="60" class="flex-shrink-0 icon-needs-inversion">
                 <span>Arquitectura e Ingeniería Civil</span>
             </h2>
             <div class="row g-4">
@@ -155,12 +121,8 @@
                         <img src="img/Ingenieria/Arquitectura.webp" class="card-img-top" alt="Arquitectura" loading="lazy">
                         <div class="card-body p-4 d-flex flex-column">
                             <h4 class="fw-bold mb-3">Arquitectura</h4>
-                            <ul class="list-unstyled small text-muted mb-4 flex-grow-1">
-                                <li><i class="bi bi-check2 text-primary"></i> Planos de Localización</li>
-                                <li><i class="bi bi-check2 text-primary"></i> Planos Arquitectónicos</li>
-                                <li><i class="bi bi-check2 text-primary"></i> Instalaciones y Estructuras</li>
-                                <li><i class="bi bi-check2 text-primary"></i> Renders 3D Profesionales</li>
-                            </ul>
+                            <p class="small text-muted mb-4 flex-grow-1">Transformamos ideas en realidades tangibles. Desarrollamos desde planos de localización y arquitectónicos hasta diseños de instalaciones y estructuras, culminando con renders 3D fotorrealistas que permiten visualizar su proyecto antes de la construcción.</p>
+
                             <button class="btn btn-tech text-white w-100" data-bs-toggle="modal" data-bs-target="#modalArq" data-content-path="html/page_arquitectura.html">
                                 <i class="bi bi-info-circle"></i> Ampliar Información
                             </button>
@@ -173,11 +135,7 @@
                         <img src="img/Ingenieria/ingenieria.webp" class="card-img-top" alt="Ingeniería" loading="lazy">
                         <div class="card-body p-4 d-flex flex-column">
                             <h4 class="fw-bold mb-3">Ingeniería</h4>
-                            <ul class="list-unstyled small text-muted mb-4 flex-grow-1">
-                                <li><i class="bi bi-check2 text-primary"></i> Planos Hidrosanitarios</li>
-                                <li><i class="bi bi-check2 text-primary"></i> Drenajes y Agua Potable</li>
-                                <li><i class="bi bi-check2 text-primary"></i> Diseño de Vías y Carreteras</li>
-                            </ul>
+                            <p class="small text-muted mb-4 flex-grow-1">Diseñamos la infraestructura que soporta el progreso. Nos especializamos en la elaboración de planos hidrosanitarios, sistemas de drenaje, redes de agua potable y el diseño técnico de vías y carreteras, garantizando funcionalidad y cumplimiento normativo.</p>
                             <button class="btn btn-tech text-white w-100" data-bs-toggle="modal" data-bs-target="#modalIng" data-content-path="html/page_IngCivil.html">
                                 <i class="bi bi-info-circle"></i> Ampliar Información
                             </button>
@@ -190,10 +148,7 @@
                         <img src="img/Ingenieria/Geomensura.webp" class="card-img-top" alt="Geomensura y Levantamientos Técnicos" loading="lazy">
                         <div class="card-body p-4 d-flex flex-column">
                             <h4 class="fw-bold mb-3">Geomensura</h4>
-                            <div class="flex-grow-1">
-                                <p class="small text-muted mb-1"><strong>Planimetría:</strong> Unificaciones, Desmembraciones, Registros.</p>
-                                <p class="small text-muted mb-4"><strong>Altimetría:</strong> Curvas de nivel, Secciones y Cálculo de Movimiento de Tierras.</p>
-                            </div>
+                            <p class="small text-muted mb-4 flex-grow-1">Precisión que define el terreno. Realizamos levantamientos planimétricos para unificaciones y desmembraciones, y estudios altimétricos para la generación de curvas de nivel y el cálculo exacto de movimiento de tierras.</p>
                             <button class="btn btn-tech text-white w-100" data-bs-toggle="modal" data-bs-target="#modalGeo" data-content-path="html/page_geomensura.html">
                                 <i class="bi bi-info-circle"></i> Ampliar Información
                             </button>
@@ -208,17 +163,17 @@
     <section id="informatica" class="section-padding">
         <div class="container">
             <h2 class="category-title text-center mx-auto mb-5 reveal d-flex align-items-center justify-content-center gap-3 flex-wrap">
-                <img src="img/Logo_Infor.png" alt="Logo Soluciones Informáticas" height="60" class="flex-shrink-0">
+                <img src="img/Logo_Infor.png" alt="Logo Soluciones Informáticas" height="60" class="flex-shrink-0 icon-original-color">
                 <span>Soluciones Informáticas</span>
             </h2>
             <div class="row g-4">
-                <!-- Hardware y Software -->
+                <!-- Hardware y Software --> 
                 <div class="col-lg-4 col-md-6 reveal">
                     <div class="card service-card h-100">
                         <img src="https://images.unsplash.com/photo-1597733336794-12d05021d510?q=80&w=1000&auto=format&fit=crop" class="card-img-top" alt="Hardware y Software" loading="lazy">
                         <div class="card-body p-4 d-flex flex-column">
                             <h4 class="fw-bold mb-3">Hardware y Software</h4>
-                            <p class="small text-muted mb-4 flex-grow-1">Servicio técnico especializado en instalación, activación de software y mantenimiento preventivo o correctivo de equipos.</p>
+                            <p class="small text-muted mb-4 flex-grow-1">Optimizamos su ecosistema digital con la instalación y licenciamiento de software, junto con un servicio técnico de mantenimiento preventivo y correctivo que asegura la máxima operatividad de sus equipos.</p>
                         </div>
                     </div>
                 </div>
@@ -228,7 +183,7 @@
                         <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1000&auto=format&fit=crop" class="card-img-top" alt="Venta de Equipos" loading="lazy">
                         <div class="card-body p-4 d-flex flex-column">
                             <h4 class="fw-bold mb-3">Venta de Equipo</h4>
-                            <p class="small text-muted mb-4 flex-grow-1">Encuentra laptops, PCs de escritorio y accesorios periféricos con garantía y asesoría personalizada.</p>
+                            <p class="small text-muted mb-4 flex-grow-1">Ofrecemos una selección curada de laptops, PCs de escritorio y periféricos de alto rendimiento. Cada compra incluye garantía y una asesoría personalizada para asegurar que adquiera la tecnología ideal para sus necesidades.</p>
                             <button class="btn btn-tech text-white w-100" data-bs-toggle="modal" data-bs-target="#modalInfo" data-content-path="html/page_Informatica.html">
                                 <i class="bi bi-info-circle"></i> Ampliar Información
                             </button>
@@ -241,7 +196,7 @@
                         <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000&auto=format&fit=crop" class="card-img-top" alt="Soporte Técnico" loading="lazy">
                         <div class="card-body p-4 d-flex flex-column">
                             <h4 class="fw-bold mb-3">Soporte Integral</h4>
-                            <p class="small text-muted mb-4 flex-grow-1">Asesoría técnica y diagnóstico de sistemas para optimizar tu flujo de trabajo digital con resultados garantizados.</p>
+                            <p class="small text-muted mb-4 flex-grow-1">Brindamos un servicio de consultoría y diagnóstico de sistemas para identificar cuellos de botella y optimizar su flujo de trabajo digital, garantizando un incremento medible en la productividad y eficiencia.</p>
                             <div class="bg-primary p-2 rounded-3 text-white text-center mb-3 d-md-none">
                                 <small class="fw-bold">100% Garantizado</small>
                             </div>
@@ -260,86 +215,41 @@
     <section id="documentos" class="section-padding">
         <div class="container">
             <h2 class="category-title text-center mx-auto mb-5 reveal d-flex align-items-center justify-content-center gap-3 flex-wrap">
-                <img src="img/Logo_GestDoc.png" alt="Logo Gestión de Documentos Digitales" height="60" class="flex-shrink-0">
+                <img src="img/Logo_GestDoc.png" alt="Logo Gestión de Documentos Digitales" height="60" class="flex-shrink-0 icon-original-color">
                 <span>Gestión de Documentos Digitales</span>
             </h2>
             <div class="reveal delay-1 mb-5 text-center">
-                <p class="lead"><i class="bi bi-house-check text-primary me-2"></i><strong class="text-gradient">Comodidad Total:</strong> Realizamos tus gestiones de forma digital. Ahorra tiempo y evita filas.</p>
+                <p class="lead"><i class="bi bi-house-check text-primary me-2"></i><strong class="text-primary">Comodidad Total:</strong> Realizamos tus gestiones de forma digital. Ahorra tiempo y evita filas.</p>
             </div>
             <div class="row g-4">
                 <div class="col-md-6 reveal">
                     <div class="card service-card h-100">
-                        <div class="card-body p-4">
-                            <h4 class="mb-3 d-flex align-items-center">
-                                <img src="img/GeDocu/logo-sat.png" alt="SAT" class="doc-header-icon me-2">
-                                Trámites SAT
-                            </h4>
-                            <div class="accordion accordion-flush" id="accordionSAT">
-                                <div class="accordion-item bg-transparent">
-                                    <h2 class="accordion-header">
-                                        <button class="accordion-button collapsed px-0 bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#doc-sat1">
-                                            Gestión de RTU
-                                        </button>
-                                    </h2>
-                                    <div id="doc-sat1" class="accordion-collapse collapse">
-                                        <div class="accordion-body px-0">
-                                            <img src="img/GeDocu/rtu.webp" class="img-fluid rounded mb-2 img-service-deploy" alt="RTU" loading="lazy">
-                                            <p class="small text-muted">Actualización y gestión completa de tu Registro Tributario Unificado.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item bg-transparent">
-                                    <h2 class="accordion-header">
-                                        <button class="accordion-button collapsed px-0 bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#doc-sat2">
-                                            Impresión de Tarjeta de Circulación y Calcomanía
-                                        </button>
-                                    </h2>
-                                    <div id="doc-sat2" class="accordion-collapse collapse">
-                                        <div class="accordion-body px-0">
-                                            <img src="img/GeDocu/TarjetaCirculacion.webp" class="img-fluid rounded mb-2 img-service-deploy" alt="Calcomanía" loading="lazy">
-                                            <p class="small text-muted">Obtención rápida de calcomanías de circulación vigentes.</p>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="card-body p-4 doc-card-container">
+                            <h4 class="mb-3 d-flex align-items-center"><img src="img/GeDocu/LogoSAT.png" alt="SAT" class="doc-header-icon me-2">Trámites SAT</h4>
+                            <div class="doc-content-display mb-3">
+                                <img src="img/GeDocu/rtu.webp" class="img-fluid rounded mb-2 img-service-deploy" alt="RTU" loading="lazy" style="cursor: zoom-in;">
+                                <h6 class="doc-content-title fw-bold">Gestión de RTU</h6>
+                                <p class="small text-muted doc-content-text">Actualización y gestión completa de tu Registro Tributario Unificado.</p>
+                            </div>
+                            <div class="list-group list-group-horizontal doc-service-list mt-auto">
+                                <button type="button" class="list-group-item list-group-item-action doc-service-item active" data-title="Gestión de RTU" data-text="Actualización y gestión completa de tu Registro Tributario Unificado." data-img="img/GeDocu/rtu.webp">Gestión de RTU</button>
+                                <button type="button" class="list-group-item list-group-item-action doc-service-item" data-title="Tarjeta y Calcomanía" data-text="Obtención rápida de la tarjeta y calcomanía de circulación vigentes para tu vehículo." data-img="img/GeDocu/TarjetaCirculacion.webp">Tarjeta y Calcomanía</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 reveal">
                     <div class="card service-card h-100">
-                        <div class="card-body p-4">
-                            <h4 class="mb-3 d-flex align-items-center">
-                                <img src="img/GeDocu/logoOJ.png" alt="OJ" class="doc-header-icon me-1">
-                                <img src="img/GeDocu/logoPNG.png" alt="PNC" class="doc-header-icon me-2">
-                                Antecedentes
-                            </h4>
-                            <div class="accordion accordion-flush" id="accordionAnt">
-                                <div class="accordion-item bg-transparent">
-                                    <h2 class="accordion-header">
-                                        <button class="accordion-button collapsed px-0 bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#ant1">
-                                            Antecedentes Policiacos
-                                        </button>
-                                    </h2>
-                                    <div id="doc-ant1" class="accordion-collapse collapse">
-                                        <div class="accordion-body px-0">
-                                            <img src="img/GeDocu/policial.webp" class="img-fluid rounded mb-2 img-service-deploy" alt="Antecedentes Policiacos" loading="lazy">
-                                            <p class="small text-muted">Obtención ágil de tu carencia de antecedentes de la Policía Nacional Civil.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item bg-transparent">
-                                    <h2 class="accordion-header">
-                                        <button class="accordion-button collapsed px-0 bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#doc-ant2">
-                                            Antecedentes Penales
-                                        </button>
-                                    </h2>
-                                    <div id="doc-ant2" class="accordion-collapse collapse">
-                                        <div class="accordion-body px-0">
-                                            <img src="img/GeDocu/penal.webp" class="img-fluid rounded mb-2 img-service-deploy" alt="Antecedentes Penales" loading="lazy">
-                                            <p class="small text-muted">Gestión efectiva de tu constancia de antecedentes penales del Organismo Judicial.</p>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="card-body p-4 doc-card-container">
+                            <h4 class="mb-3 d-flex align-items-center"><img src="img/GeDocu/logoOJ.png" alt="OJ" class="doc-header-icon me-1"><img src="img/GeDocu/logoPNG.png" alt="PNC" class="doc-header-icon me-2">Antecedentes</h4>
+                            <div class="doc-content-display mb-3">
+                                <img src="img/GeDocu/policial.webp" class="img-fluid rounded mb-2 img-service-deploy" alt="Antecedentes Policiales" loading="lazy" style="cursor: zoom-in;">
+                                <h6 class="doc-content-title fw-bold">Antecedentes Policiales</h6>
+                                <p class="small text-muted doc-content-text">Obtención ágil de tu carencia de antecedentes de la Policía Nacional Civil.</p>
+                            </div>
+                            <div class="list-group list-group-horizontal doc-service-list mt-auto">
+                                <button type="button" class="list-group-item list-group-item-action doc-service-item active" data-title="Antecedentes Policiales" data-text="Obtención ágil de tu carencia de antecedentes de la Policía Nacional Civil." data-img="img/GeDocu/policial.webp">Antecedentes Policiales</button>
+                                <button type="button" class="list-group-item list-group-item-action doc-service-item" data-title="Antecedentes Penales" data-text="Gestión efectiva de tu constancia de antecedentes penales del Organismo Judicial." data-img="img/GeDocu/penal.webp">Antecedentes Penales</button>
                             </div>
                         </div>
                     </div>
@@ -347,6 +257,7 @@
             </div>
         </div>
     </section>
+
 
     <!-- Laboratorio Digital (Jobies / Prácticas Web) -->
     <section id="laboratorio" class="section-padding bg-light">
@@ -360,14 +271,14 @@
                     <div class="card service-card h-100 highlight-card">
                         <div class="row g-0">
                             <div class="col-md-4" style="min-height: 200px;">
-                                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop" class="img-fluid h-100 object-fit-cover" alt="Coding">
+                                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop" class="img-fluid h-100 object-fit-cover" alt="Coding" loading="lazy">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body p-4 d-flex flex-column justify-content-center h-100">
                                     <h4 class="fw-bold mb-3">Mis "Jobies"</h4>
                                     <p class="text-muted mb-4">Un espacio dedicado a mis trabajos de prácticas funcionales en la Web. Aquí demuestro mi capacidad para resolver problemas lógicos y estéticos mediante el código.</p>
                                     <div>
-                                        <button class="btn btn-tech text-white px-md-5" data-bs-toggle="modal" data-bs-target="#modalProyectos" data-content-path="html/page_proyectos.html">
+                                        <button class="btn btn-tech text-white" data-bs-toggle="modal" data-bs-target="#modalProyectos" data-content-path="html/page_proyectos.html">
                                             <i class="bi bi-rocket-takeoff"></i> Ver Galería de Prácticas
                                         </button>
                                     </div>
@@ -388,8 +299,8 @@
     <div class="modal fade" id="modalArq" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content border-0 shadow-lg overflow-hidden" style="border-radius: 20px;">
-                <div class="modal-header border-0 p-3 shadow-sm">
-                    <h5 class="modal-title fw-bold text-gradient">Detalles de Arquitectura</h5>
+                <div class="modal-header border-0 p-3 shadow-sm text-primary">
+                    <h5 class="modal-title fw-bold">Detalles de Arquitectura</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-0">
@@ -402,8 +313,8 @@
     <div class="modal fade" id="modalInfo" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content border-0 shadow-lg overflow-hidden" style="border-radius: 20px;">
-                <div class="modal-header border-0 p-3 shadow-sm">
-                    <h5 class="modal-title fw-bold text-gradient">Soluciones Informáticas</h5>
+                <div class="modal-header border-0 p-3 shadow-sm text-primary">
+                    <h5 class="modal-title fw-bold">Soluciones Informáticas</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-0">
@@ -416,8 +327,8 @@
     <div class="modal fade" id="modalProyectos" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content border-0 shadow-lg overflow-hidden" style="border-radius: 20px;">
-                <div class="modal-header border-0 p-3 shadow-sm">
-                    <h5 class="modal-title fw-bold text-gradient">Laboratorio de Prácticas Web</h5>
+                <div class="modal-header border-0 p-3 shadow-sm text-primary">
+                    <h5 class="modal-title fw-bold">Laboratorio de Prácticas Web</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-0">
@@ -430,8 +341,8 @@
     <div class="modal fade" id="modalIng" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content border-0 shadow-lg overflow-hidden" style="border-radius: 20px;">
-                <div class="modal-header border-0 p-3 shadow-sm">
-                    <h5 class="modal-title fw-bold text-gradient">Detalles de Ingeniería Civil</h5>
+                <div class="modal-header border-0 p-3 shadow-sm text-primary">
+                    <h5 class="modal-title fw-bold">Detalles de Ingeniería Civil</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-0">
@@ -444,8 +355,8 @@
     <div class="modal fade" id="modalGeo" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content border-0 shadow-lg overflow-hidden" style="border-radius: 20px;">
-                <div class="modal-header border-0 p-3 shadow-sm">
-                    <h5 class="modal-title fw-bold text-gradient">Detalles de Geomensura</h5>
+                <div class="modal-header border-0 p-3 shadow-sm text-primary">
+                    <h5 class="modal-title fw-bold">Detalles de Geomensura</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-0">
@@ -465,6 +376,11 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Contenedor para la descripción flotante (Toast) -->
+    <div id="toast-description" class="toast-description">
+        <p id="toast-description-text" class="m-0"></p>
     </div>
 
     <!-- Scripts -->

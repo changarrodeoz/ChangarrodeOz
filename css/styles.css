@@ -9,11 +9,12 @@
     --glass-border: rgba(0, 0, 0, 0.1);
     --card-bg: #ffffff;
     --card-hover-bg: #ffffff;
-    --text-gradient: linear-gradient(135deg, #0062ff, #00a8cc);
     --hero-overlay: rgba(255, 255, 255, 0.8);
+    --hero-overlay: rgba(255, 255, 255, 0.5);
     --accent-glow: rgba(0, 123, 255, 0.2);
+    --hero-text-color: #f8f9fa; /* Color de texto para el banner */
     --close-filter: none;
-    --logo-filter: invert(1);
+    --logo-filter: none;
 }
 
 .dark-mode {
@@ -27,11 +28,11 @@
     --glass-border: rgba(255, 255, 255, 0.1);
     --card-bg: rgba(255, 255, 255, 0.03);
     --card-hover-bg: rgba(255, 255, 255, 0.06);
-    --text-gradient: linear-gradient(135deg, #00f2fe, #4facfe);
     --hero-overlay: rgba(8, 11, 18, 0.85);
+    --hero-overlay: rgba(8, 11, 18, 0.6);
     --accent-glow: rgba(0, 242, 254, 0.3);
     --close-filter: invert(1);
-    --logo-filter: none;
+    --logo-filter: invert(1);
 }
 
 body {
@@ -96,8 +97,18 @@ body {
 .mini-loader-logo {
     height: 40px;
     opacity: 0;
-    filter: var(--logo-filter);
     animation: fadeInScale 0.5s forwards;
+}
+
+/* Forzar tema oscuro permanente en la barra de navegación */
+.navbar-force-dark {
+    --text-main: #f8f9fa;
+    --nav-bg: rgba(8, 11, 18, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --accent-glow: rgba(0, 242, 254, 0.3);
+    --logo-filter: invert(1);
+    --close-filter: invert(1);
+    --primary-color: #00f2fe; /* Forzar color de resaltado del tema oscuro */
 }
 
 .navbar {
@@ -152,9 +163,75 @@ body {
     opacity: 1;
 }
 
+/* Estilo forzado para la barra de navegación sobre el banner (texto claro) */
+.navbar-on-hero .navbar-brand,
+.navbar-on-hero .navbar-brand span,
+.navbar-on-hero #theme-toggle { color: var(--hero-text-color) !important; }
+
+/* El color del toggler y los links se hereda del hero */
+.navbar-on-hero .navbar-toggler, .navbar-on-hero .nav-link { color: var(--hero-text-color) !important; }
+/* Invierte los iconos en el hero, excepto los que deben mantener su color original */
+.navbar-on-hero .nav-item-icon:not(.icon-original-color):not(.icon-needs-inversion) {
+    filter: invert(1);
+}
+
+/* Efecto de brillo en los iconos del menú al pasar el mouse sobre el enlace */
+.navbar-nav .nav-link:hover .nav-item-icon, .navbar-nav .nav-link.active .nav-item-icon {
+    transform: scale(1.1);
+}
+
+/* Resaltado para iconos genéricos (se adaptan al tema) */
+.navbar-nav .nav-link:hover .nav-item-icon:not(.icon-original-color):not(.icon-needs-inversion), .navbar-nav .nav-link.active .nav-item-icon:not(.icon-original-color):not(.icon-needs-inversion) {
+    filter: var(--logo-filter) drop-shadow(0 0 10px var(--primary-color));
+}
+
+/* Resaltado para iconos que mantienen su color original (solo brillo) */
+.navbar-nav .nav-link:hover .icon-original-color, .navbar-nav .nav-link.active .icon-original-color {
+    filter: drop-shadow(0 0 10px var(--primary-color));
+}
+
+/* Resaltado para el icono de Arq/Ing (se adapta a cada tema) */
+.dark-mode .navbar-nav .nav-link:hover .icon-needs-inversion, .dark-mode .navbar-nav .nav-link.active .icon-needs-inversion {
+    filter: drop-shadow(0 0 10px var(--primary-color)); /* Solo brillo en tema oscuro */
+}
+.nav-item-icon {
+    height: 22px;
+    filter: var(--logo-filter); /* Aplicado por defecto, anulado por .icon-original-color */
+    transition: filter 0.5s ease;
+}
+
+/* Clase para forzar que un icono mantenga su color original */
+.icon-original-color {
+    filter: invert(0) !important; /* Evita la inversión de color pero permite otros filtros como drop-shadow */
+}
+
+/* Clase para iconos claros que necesitan ser oscuros en tema claro */
+.dark-mode .icon-needs-inversion {
+    filter: invert(0) !important;
+}
+
+body:not(.dark-mode) .navbar-nav .nav-link:hover .icon-needs-inversion,
+body:not(.dark-mode) .navbar-nav .nav-link.active .icon-needs-inversion {
+    filter: invert(1) drop-shadow(0 0 10px var(--primary-color)) !important; /* Invertir y brillo en tema claro */
+}
+/* El tema claro del body no debe afectar al icono de Arq/Ing en la navbar oscura */
+body:not(.dark-mode) .navbar-force-dark .icon-needs-inversion {
+    filter: invert(0) !important;
+}
+
+/* Para el tema claro, el icono de Arq/Ing debe ser negro para ser visible */
+body:not(.dark-mode) .icon-needs-inversion {
+    filter: invert(1);
+}
+
+
 /* Eliminar línea antigua */
 .navbar-nav .nav-link::after {
     display: none !important;
+}
+
+.navbar-toggler-icon {
+    filter: var(--close-filter); /* Reutilizamos el filtro para que el icono sea visible en ambos temas */
 }
 
 /* Theme Toggle Button */
@@ -170,10 +247,6 @@ body {
 
 #theme-toggle:hover {
     transform: rotate(15deg) scale(1.1);
-}
-
-.dark-mode-icon, .light-mode-icon {
-    transition: all 0.3s ease;
 }
 
 .dark-mode .light-mode-icon {
@@ -205,6 +278,7 @@ body:not(.dark-mode) .dark-mode-icon {
     .navbar-nav .nav-link::after { display: none; }
 }
 
+
 .section-padding {
     min-height: 100vh;
     display: flex;
@@ -213,18 +287,41 @@ body:not(.dark-mode) .dark-mode-icon {
 }
 
 .hero {
-    background-color: var(--hero-overlay);
-    background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop');
-    background-attachment: fixed;
-    background-position: center center;
-    background-size: cover;
     min-height: 100vh;
-    color: var(--text-main);
+    color: var(--hero-text-color);
     display: flex;
     align-items: center;
     text-align: center;
     position: relative;
     overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop');
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed; /* Activa el efecto parallax */
+    animation: heroZoom 20s infinite alternate;
+    z-index: -2;
+}
+
+/* Clase de utilidad para forzar el tema oscuro en una sección específica */
+.force-dark-theme {
+    --primary-color: #00f2fe;
+    --accent-glow: rgba(0, 242, 254, 0.3);
+    --text-main: #f8f9fa;
+    --text-muted: #a0a0a0;
+    --logo-filter: invert(1);
+}
+
+/* Dentro del banner, el icono de Arq/Ing nunca debe cambiar de color */
+.force-dark-theme .icon-needs-inversion {
+    filter: invert(0) !important;
 }
 
 .hero h1 {
@@ -238,28 +335,31 @@ body:not(.dark-mode) .dark-mode-icon {
 }
 
 .child-logos-container {
+    background-color: rgba(8, 11, 18, 0.7); /* Fondo oscuro fijo */
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde claro fijo */
+    border-radius: 20px;
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 600px; /* Ancho máximo fijo para el contenedor */
+    margin: 0 auto; /* Centrar el contenedor */
+}
+
+.child-logo-grid {
     display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 40px;
+    justify-content: space-around; /* Distribuir los iconos uniformemente */
+    align-items: flex-start;
 }
 
 .child-logo-hero {
     height: 70px;
-    filter: var(--logo-filter);
     transition: all 0.4s ease;
 }
 
 .child-logo-hero:hover {
-    transform: scale(1.1);
-    filter: drop-shadow(0 0 10px var(--primary-color));
-}
-
-.text-gradient {
-    background: var(--text-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
+    transform: scale(1.15) !important;
+    filter: drop-shadow(0 0 10px var(--primary-color)) !important;
 }
 
 .category-title {
@@ -286,8 +386,7 @@ body:not(.dark-mode) .dark-mode-icon {
 }
 
 .category-title img {
-    filter: var(--logo-filter);
-    transition: filter 0.5s ease;
+    transition: transform 0.5s ease;
 }
 
 /* Estilo Tecnológico para Tarjetas */
@@ -340,6 +439,21 @@ body:not(.dark-mode) .dark-mode-icon {
 .highlight-card {
     background: linear-gradient(135deg, rgba(0, 242, 254, 0.1), rgba(79, 172, 254, 0.1));
     border: 2px solid var(--primary-color);
+}
+
+/* Títulos de planes/proyectos dentro de las tarjetas */
+.plan-title,
+.project-title {
+    color: var(--text-main);
+}
+
+/* Badge tecnológico adaptable al tema */
+.badge-tech {
+    background-color: var(--accent-glow);
+    color: var(--primary-color);
+    font-weight: 600;
+    padding: 0.4em 0.8em;
+    border-radius: 50px;
 }
 
 /* Estilos para el acordeón interno */
@@ -443,6 +557,11 @@ iframe {
     to { opacity: 1; transform: scale(1); }
 }
 
+@keyframes heroZoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
 #contacto {
     min-height: auto;
     padding: 30px 0;
@@ -451,8 +570,8 @@ iframe {
 }
 
 .btn-tech {
-    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: var(--primary-color);
+    border: 1px solid var(--primary-color);
     border-radius: 50px;
     padding: 12px 28px;
     font-weight: 600;
@@ -517,10 +636,11 @@ iframe {
 }
 
 .btn-tech-success:hover {
-    background: #128c7e;
+    background: #25D366;
     color: white;
     transform: translateY(-5px) scale(1.03);
-    box-shadow: 0 15px 30px rgba(37, 211, 102, 0.3);
+    box-shadow: none; /* Remove old shadow */
+    filter: drop-shadow(0 0 10px #25D366); /* Add new glow effect */
 }
 
 .btn-tech-outline {
@@ -538,16 +658,25 @@ iframe {
 }
 
 .btn-tech-outline:hover {
-    background: var(--text-main);
+    background: var(--primary-color);
     color: var(--bg-body) !important;
+    border-color: var(--primary-color);
     transform: translateY(-5px) scale(1.03);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    filter: drop-shadow(0 0 10px var(--primary-color)); /* Add new glow effect */
+}
+
+/* Ajuste específico para el botón de email en hover */
+.btn-tech-outline.social-email:hover {
+    background: #c71610;
+    border-color: #c71610;
+    filter: drop-shadow(0 0 10px #c71610);
 }
 
 .btn-tech:hover {
     transform: translateY(-5px) scale(1.03);
-    box-shadow: 0 15px 30px var(--accent-glow);
-    filter: brightness(1.1);
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    filter: drop-shadow(0 0 10px var(--primary-color));
 }
 
 /* Barra lateral de Redes Sociales */
@@ -560,6 +689,13 @@ iframe {
     flex-direction: column;
     gap: 15px;
     z-index: 1050; /* Por encima de otros elementos */
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.social-sidebar.hidden {
+    opacity: 0;
+    transform: translateY(-50%) translateX(100%);
+    pointer-events: none;
 }
 
 .social-link {
@@ -581,9 +717,17 @@ iframe {
 .social-link:hover {
     background: var(--primary-color);
     color: var(--bg-body);
-    transform: scale(1.1) translateX(-5px);
-    box-shadow: 0 0 20px var(--primary-color);
+    transform: scale(1.15) translateX(-5px);
 }
+
+/* Colores institucionales para redes sociales en hover */
+.social-facebook:hover { background-color: #1877F2; color: #fff; filter: drop-shadow(0 0 8px #1877F2); }
+.social-instagram:hover { background: #d6249f; background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); color: #fff; filter: drop-shadow(0 0 8px #d6249f); }
+.social-x:hover { background-color: #000000; color: #fff; filter: drop-shadow(0 0 8px #ffffff); }
+.social-tiktok:hover { background-color: #000000; color: #fff; filter: drop-shadow(0 3px 8px #ff0050); }
+.social-youtube:hover { background-color: #FF0000; color: #fff; filter: drop-shadow(0 0 8px #FF0000); }
+.social-whatsapp:hover { background-color: #25D366; color: #fff; filter: drop-shadow(0 0 8px #25D366); }
+.social-email:hover { background-color: #c71610; color: #fff; filter: drop-shadow(0 0 8px #c71610); }
 
 /* Ajuste para el iframe del Laboratorio */
 #modalProyectos .modal-body {
@@ -598,32 +742,95 @@ iframe {
     object-fit: contain;
 }
 
+.doc-card-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.list-group-horizontal.doc-service-list {
+    gap: 8px;
+}
+
+/* En pantallas pequeñas, los botones se apilan */
+@media (max-width: 576px) {
+    .list-group-horizontal.doc-service-list { flex-direction: column; }
+}
+
+.doc-service-list .list-group-item {
+    background-color: transparent;
+    border: 1px solid var(--glass-border);
+    border-radius: 8px !important; /* Forzar el borde redondeado */
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    text-align: center;
+    flex-grow: 1; /* Para que los botones ocupen el mismo espacio */
+    margin-bottom: 0; /* Eliminar margen inferior */
+}
+
+.doc-service-list .list-group-item:hover {
+    background-color: var(--accent-glow);
+    color: var(--primary-color);
+}
+
+.doc-service-list .list-group-item.active {
+    background-color: var(--primary-color);
+    color: var(--bg-body);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+/* Mejora de contraste para los botones de documentos en tema oscuro */
+.dark-mode .doc-service-list .list-group-item:not(.active),
+.dark-mode .doc-content-title,
+.dark-mode .doc-content-text {
+    color: var(--text-main);
+}
+
+.doc-content-display {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.doc-content-display img {
+    height: auto; /* La altura se ajusta automáticamente para mantener la proporción */
+    object-fit: contain; /* La imagen se muestra completa */
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+.doc-content-title, .doc-content-text {
+    opacity: 0;
+    animation: fadeIn 0.5s forwards 0.2s;
+}
+
+
 .child-logo-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; 
     text-align: center;
     max-width: 180px; /* Ancho máximo para controlar el texto largo */
 }
 
 .child-logo-caption {
-    margin-top: 12px;
+    margin-top: 10px;
     font-size: 0.8rem;
     font-weight: 600;
-    color: var(--text-muted);
     line-height: 1.4;
     padding: 5px 10px;
     border-radius: 50px;
-    color: #fff; /* Forzar texto blanco para mejor contraste */
+    color: var(--hero-text-color);
     transition: all 0.4s ease;
-
-    /* Efecto de vidrio esmerilado para un look más profesional */
     background-color: rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border: 1px solid var(--glass-border);
+    margin-bottom: 0; /* Reset margin */
 }
-
 .child-logo-link {
     text-decoration: none;
 }
@@ -632,4 +839,68 @@ iframe {
     color: var(--primary-color);
     background-color: rgba(0, 0, 0, 0.4);
     border-color: var(--primary-color);
+}
+
+/* Estilos para la descripción flotante (Toast) */
+.toast-description {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    color: var(--text-main);
+    padding: 12px 25px;
+    border-radius: 50px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    z-index: 1100; /* Z-index alto para estar por encima de todo */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    max-width: 90%;
+    text-align: center;
+}
+
+.toast-description.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* --- Estilos del Nuevo Footer --- */
+.footer-main {
+    border-top: 1px solid var(--glass-border);
+}
+
+.footer-heading {
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.footer-links li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+    padding-left: 5px;
+}
+
+.footer-bottom {
+    border-top: 1px solid var(--glass-border);
+    padding: 1.5rem 0;
+    margin-top: 2rem;
+    text-align: center;
 }
